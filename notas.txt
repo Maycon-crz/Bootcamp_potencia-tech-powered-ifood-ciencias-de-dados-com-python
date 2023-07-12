@@ -1,0 +1,108 @@
+-----------------------------------------------
+-----------------------------------------------
+Fundamentos de Lógica de programação:
+------
+* Algoritmos: Sequencías de passos para atingir algum objetivo;
+* Problema -> Algoritimo -> Programa
+* A narrativa não é nada mais do que uma receita de bolo;
+> Primeio sempre foque em entender o problema;
+> Uma narrativa detalhada tem de 8 a 15 passos;
+* Joguinho de lógica: https://www.google.com/doodles/celebrating-50-years-of-kids-coding
+* Pseudocódigo é uma forma genérica de escrever um algoritmo, utilizando uma linguagem simples sem necessidade de conhecer qualquer sintaxe de qualquer linguagem de programação livre de contexto.
+-----------------------------------------------
+-----------------------------------------------
+Organizando seus estudos com os roadmaps DIO eo Notion
+------
+* https://digitalinnovationone.github.io/roadmaps/
+* https://www.notion.so/product
+* https://www.notion.so/product/ai
+* https://www.notion.so/help/reference
+* https://indify.co e https://widgetbox.app
+* Notion API: https://developers.notion.com
+* GitHub da professora: elidianaandrade
+* Slides: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EeP49vd0I0ZPq-rYTIGIvDQBKo_Ne-mTz-RyQLk-ij8F-A?rtime=eXrsh7WA20g
+-----------------------------------------------
+-----------------------------------------------
+Vercionamento de código com Git e HitHub
+------
+* Link do Git: https://git-scm.com
+* git commit => git pull => git push
+* https://github.com
+* Coloquei autenticação de 2 fatores no GitHub;
+* Configurar para o mesmo nome e Email fiquem globais;
+- git config user.name;
+- git config user.email;
+- git config init defaultBranch (mostra a branch principal)
+- git config --global --list (mostra as configurações que foram definidas)
+* O git é independente do GitHub
+* Autenticação via token;
+- Para subir os códigos para o GitHub é necessário gerar um token de acesso;
+- Settings => Developer Settings => Personl access tokens => Tokens => Generate new token;
+- Depois de gerado é possível salvar o token no git para toda vez que subir uma alteração seja autenticada;
+- Comando: (git config --global credential.helper store) ou Comando: git config --global credential.helper cache caso sua máquina for  compartilhada;
+> Após por o comando quando fizer o primeiro git clone vai pedir a senha a põe o token de acesso que nos próximos git clone não va ser mais precisar;
+* Autenticação via SSH;
+- SSH é um protocolo de Rede;
+- Comando para ver se existem chaves SSH:
+> No Git Bash: ls -a ~/.ssh
+> Para gerar Chave SSH: GitHub Docs => Authentication => Conexão com SSH => Gerar nova chave SSH;
+> Comando para gerar o arquivo com a chave: ssh-keygen -t ed25519 -C "your_email@example.com";
+# Insira o lugar para salvar e depois a passphrase que é uma frase de segurança
+# Depois adicione o ssh-agent para manter a senha armazenada seguramente: eval "$(ssh-agent -s)"
+# Tem outros passos que não fiz porque considerei desnecessário no momento;
+---
+* Criando e Clonando Repositórios
+- mkdir repo-local
+- cd repo-local
+- git init (inicia o repositório)
+- cd .git
+> cat config (Exibe as configurações do repositório);
+- git remote -v (Exibe o repositório remoto que você esta conectado);
+- git remote add origin {URL} (Conecta com um repositório remoto);
+- git clone {URL} --branch feature-l --single-branch (Clona o repositório com apena uma branch específicada);
+- Quando você cria um repositório no gitHub se selecionar nenhuma das opções nem o readme depois de criado ele mostra as dicas de comandos que quando você seleciona as opções não aparece;
+---
+* Salvando Alterações no Repositório Local
+- git status (Mostra o status do repositório);
+- touch README.md (Para criar o README);
+- Untracked files (São arquivos não rastreados);
+- Link: https://readme.so/pt
+- git commit -m "Mensagem para o commit"; (Salvando o commit);
+- git log (Exibe o hitórico dos commits);
+- O git não reconhece diretórios vazios;
+- echo > .gitignore (Cria o arquivo .gitignore);
+- touch aulas/.gitkeep (o gitkeep serve para que o git reconheça um diretório vazio)
+---
+* Desfazendo Alterações no Resitório Local
+- git restore <file> (Descarta todas as alterações que foram feitas localmente);
+- Para remover a preparação para repositório caso tenha digitado git init em um local errado use: rm -rf .git
+- Comando para alterar a mensagem do commit: git commit --amend -m "Nova mensagem"
+- Comando para voltar no tempo a outro commit: 
+> git reset --soft <Hash do commit copiado do git log>
+- Comando para voltar no tempo ignorando adversidades:
+> git reset --hard <Hash do commit>
+- git reflog mostra um histórico mais detalhado;
+---
+* Conectar repositório local com o remoto: 
+- git remote add origin;
+- Enviando o contéudo do repositório local para o remoto:
+> git push -u origin main;
+---
+* Se entrar em um repositório no GitHub e clicar na tecla (.) vai abrir o editor de código do GitHub;
+* git checkout -b <nome_da_branch> (Troca de branch)
+* Cada branch funciona de forma independente;
+* git branch -v (Lista o último commite de cada branch);
+* git merge <nome_da_outra_branch> (mescla a branch atual com outra);
+* git branch -d <nome_de_branch> (Exclui uma branch específica);
+---
+* git pull (Atualiza o repositório local baixando as alterações do remoto e mesclando com o local);
+* git fetch (Baixa as alterações remotas mas não mescla com a branch local direto);
+* git stash (Armazena as alterações para poder criar outra branch)
+* git checkout <nome_da_branch> (Troca de branch);
+* https://github.com/elidianaandrade/dio-curso-git-github
+* https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EYjkgVZuUv5HsVgJUEPv1_oB_QWs8MFBY_PBQ2UAtLqucg?rtime=BENoL3qC20g
+* https://gitfluence.com/
+* https://myoctocat.com/
+
+
+PAREI EM: Desfazendo Alterações no Resitório Local => 02:07
