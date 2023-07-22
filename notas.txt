@@ -66,7 +66,7 @@ Vercionamento de código com Git e HitHub
 - git status (Mostra o status do repositório);
 - touch README.md (Para criar o README);
 - Untracked files (São arquivos não rastreados);
-- Link: https://readme.so/pt
+- Link: https://readme.so/pt (Site que ajuda a criar readme.md)
 - git commit -m "Mensagem para o commit"; (Salvando o commit);
 - git log (Exibe o hitórico dos commits);
 - O git não reconhece diretórios vazios;
@@ -103,6 +103,199 @@ Vercionamento de código com Git e HitHub
 * https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EYjkgVZuUv5HsVgJUEPv1_oB_QWs8MFBY_PBQ2UAtLqucg?rtime=BENoL3qC20g
 * https://gitfluence.com/
 * https://myoctocat.com/
-
-
-PAREI EM: Desfazendo Alterações no Resitório Local => 02:07
+-----------------------------------------------
+-----------------------------------------------
+Como Entregar seu Desafio de Projeto
+------
+* Todo desafio é entregue pelo GitHub;
+* Metodologia educacional: https://www.uvu.edu/otl/resources/group_work/pbl.html
+* https://www.youtube.com/watch?v=WfD_S2Vi4qI&t=1304s
+* https://web.dio.me/lives/primeiros-passos-com-git-e-github
+-----------------------------------------------
+-----------------------------------------------
+Contribuindo em um projeto open source no GitHub
+------
+* É um projeto de cófigo aberto, livre para ser modificado;
+* Criar um arquivo com a documentação de como contribuir com o projeto;
+* Issues => New Issue (Sugerir melhoria)
+- Você pode estar adicionando tamplates para novas issues para facilitar a contribuição das pessoas;
+- Na hora de commitar adicionar #numero_da_issue no final da mensagem;
+* Pull request (Encaminhar melhoria)
+- Fork (Criar uma cópia do repositório original porque não se tem permissão para alterar no repositório original)
+> Criar um clone na máquina - git clone;
+# Adincionar o repositório original como upstream (para fazer referência ao original) = git remote add upstream <url>
+> git pull upstream main (comando para baixar as atualizações do repositório original no clone/repositório local)
+* https://github.com/elidianaandrade/dio-lab-open-source
+* https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EakzpKFKi1lJihVQn7sabE8BG7BzYVNs1p6rVDJanJcgdQ?rtime=NAa7if-D20g
+---
+---
+- Fiz o fork do repositório dela para minha conta do GitHub;
+- Clonei esse repositório forked para a minha máquina;
+- Adicionei o remote upstream para manter o meu repositório local atualizado: git remote add upstream https://github.com/elidianaandrade/dio-lab-open-source.git
+- OBS: Antes de fazer qualquer alteração, baixar e atualizar o repositório local usando o comando: git pull upstream main
+- Fil o pull request para o original só esperar a aprovação, mas a principio da para seguir em frente;
+-----------------------------------------------
+-----------------------------------------------
+Aula Inaugural - Potência Tech powered by iFood: Ciência de Dados com Python
+---
+* Ela disse que no final da aula inaugural é para tirar um print e postar no linkedin;
+* Mesmo que conclua todo o conteúdo tem que assistir todas as mentorias para concluir o bootcamp;
+-----------------------------------------------
+-----------------------------------------------
+Ambiente de Desenvolvimento e Primeiros Passos com Python
+---
+* Origem do Python 1989 - Guido Van Rossum;
+- Influenciado pela linguagem ABC usada para iniciantes;
+- Curva de aprendizado baixa;
+- 1991 primeira versão pública
+- A partir da versão 3.0 teve mudanças muito profundas que melhoraram a linguagem;
+* Tipagem dinâmica e forte;
+* Multiplataforma e multiparadigma;
+* Comunidade grande;
+* Curva de aprendizado baixa;
+* Para aplicativos mobile não é recomendado;
+---
+* Configuração do ambiente de desenvolvimento
+- Para verificar se está instalado: python -V
+- https://www.python.org/downloads/release/python-3114
+- Vídeo simples e rápido que encontrei no youtube de como intalar o python: https://www.youtube.com/watch?v=0pG4NrucQR4
+* Editores: VSCode ou PyCharm
+* Extensões:
+- Python
+- autoDocstring - Python Docstring Generator
+- Python Extension Pack
+- IntelliCode
+---
+* Primeiro programa
+- Programar é informar ao computador uma sequência de rotinas que devem ser processadas;
+- extensão do python: py
+* Slides: https://academiapme-my.sharepoint.com/personal/kawan_dio_me/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fkawan%5Fdio%5Fme%2FDocuments%2FSlides%20dos%20Cursos%2FPython%20%2D%20M%C3%B3dulo%20I%20%2D%20Fundamentos%2FCurso%201&ga=1
+-----------------------------------------------
+-----------------------------------------------
+Conhecendo a Linguagem de Programação Python
+---
+* Tipos de dados
+- Texto: str;
+- Sequência: list, tuple, range;
+- Mapa: dict;
+- Coleção: set, fronzenset
+- Os tipos são importantes para delimitar o range de posibilidades;
+* Para ligar o modo interativo é só por python no terminal e dar enter;
+---
+* Modo interativo
+- É escrever e ver o código na hora;
+- Não precisa por print executa os códigos na hora;
+- Formas de iniciar: digitar python no terminal;
+> Para sair digite: exit()
+- dir() Retorna o escopo local ou todos os métodos possíveis do tipo;
+- help()
+> Após dar enter o help pode descrever todos os métodos possiveis de um tipo é só digitar e dar enter;
+> Para sair dite a letra: q após isso digite enter;
+> Basicamente é uma documentação offline;
+---
+* Variáveis e constantes:
+- Variáveis: São valores que podem sofrer alterações no decorrer da execução do programa;
+- Constantes: Os valores são imutaveis;
+> Em python não existe um tipo para informar que a variável é uma constante então se usa convenssão como por o nome da constante em MAIUSCULO;
+- Boas práticas:
+> Nomes em snake_case
+> Nomes sugestivos
+> Nome de constantes todo em maiúsculo
+---
+* Conversão de tipos
+- Se fizer uma divisão de numero inteiro e por 2 barras
+- Converter para String: str(parametro)
+---
+* Funções de entrada e saida:
+- input("Mensagem de captura")
+---
+* https://github.com/digitalinnovationone/trilha-python-dio
+* https://docs.python.org/3/library/stdtypes.html
+-----------------------------------------------
+-----------------------------------------------
+Tipos de Operadores com Python
+---
+* Operadores aritméticos;
+- (+, -, *, /, //, %, **)
+> Módulo: %
+> Exponenciação: **
+- Segue a ordem de operação padrão
+> Para alterar a ordem padrão use ()
+- Vai da esquerda para a direita
+---
+* Operadores de comparação
+- Usados para comprar 2 valores
+- (==, !=, >, >=, <, <=)...
+---
+* Operadores de atribuição
+- (=, +=, -=, *=, /5, //5)...
+---
+* Operadores lógicos
+- Resultam em um bool (true ou false);
+- (and, or)
+- Negação: not
+- lista_vazia = []
+> not lista_vazia
+# vai retornar: true
+- not ""
+> vai retornar: true
+---
+* Operadores de identidade
+- usados para comprar se os objetos testados ocupam a mesma posição em memória
+- (is, is not)
+---
+* Operadores de associação
+- É case sensitive
+---
+* https://academiapme-my.sharepoint.com/:p:/r/personal/kawan_dio_me/_layouts/15/Doc.aspx?sourcedoc=%7BACEEEE85-1D30-45FA-9CBB-FC82DF9C729B%7D&file=14%20-%20%5BDio%5D%20Operadores%20de%20associa%C3%A7%C3%A3o.pptx&action=edit&mobileredirect=true
+-----------------------------------------------
+-----------------------------------------------
+Estruturas Condicionais e de Repetição em Python
+---
+* Indentação  e blocos
+- Em Python o fechamento do bloco é delimitado pela indentação;
+- Em Java as chaves void funcao_1(){} indicam abertura e fechamento de blocos;
+- Em Python o Bloco inicia com (:);
+- Em Python uma boa prática é deixar 4 espaços para identificar os blocos
+- Em Python não é opcional indentar;
+---
+* Estruturas condicionais
+- Permite o desvio de fluxo de controle conforme expressões lógicas;
+- (if, else, elif)
+> elif é igual o elseif do PHP;
+- if ternário
+> Se usa if e else mesmo ao invés de ? e : como no PHP
+---
+* Estruturas de Repetição
+- Usadas para repetir um trecho de código;
+- (for, while)
+- (for) é usado para percorrer um objeto iterável
+-  range é uma função built-in do Python
+> serve para pegar um intervalo específico de um ponto até outro;
+- while é usado para repetir um bloco de código
+> Faz sentido usar quando não se sabe o número de vezes que o bloco deve ser executado;
+> A diferença entre o if e o while é que o if testa e executa, já o while executa até atinjir o objetivo;
+> break pausa o código;
+> continue #É o contrário do break;
+---
+* Links: https://academiapme-my.sharepoint.com/:p:/r/personal/kawan_dio_me/_layouts/15/Doc.aspx?sourcedoc=%7B8668BA5E-74EC-4F25-A707-E571A7A54E57%7D&file=17%20-%20%5BDio%5D%20Estruturas%20de%20repeti%C3%A7%C3%A3o.pptx&action=edit&mobileredirect=true
+-----------------------------------------------
+-----------------------------------------------
+Manipulando Strings com Python
+---
+* Conhecendo métodos úteis da classe string
+- strip() - Remove espaços em branco no inicio e no fim
+- lstrip() - Remove espaço em branco na esquerda;
+- rstrip() - Remove espaço em branco na direita;
+- center(10, "#") = "##Python##"
+- ".".join("Python") = "P.y.t.h.o.n"
+---
+* Interpolação de variáveis
+- Old Style
+> %s para valores do tipo string
+> %d para valores do tipo
+- format()
+- {nome_da_variavel}
+---
+* Fatiamento de string
+- 
