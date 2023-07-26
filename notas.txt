@@ -298,4 +298,39 @@ Manipulando Strings com Python
 - {nome_da_variavel}
 ---
 * Fatiamento de string
-- 
+- Strings de multiplas linhas e Strings triplas são a mesma coisa;
+> Para usar por 3 aspas (") e fecha com mais 3 aspas;
+> Útil para exibir mensagens;
+- Slides: https://academiapme-my.sharepoint.com/:p:/r/personal/kawan_dio_me/_layouts/15/Doc.aspx?sourcedoc=%7B6A2AB812-91AE-4E8C-8CB3-ACA18889068D%7D&file=18%20-%20%5BDio%5D%20String%20e%20fatiamento.pptx&action=edit&mobileredirect=true
+-----------------------------------------------
+-----------------------------------------------
+Criando um Sitema Bancário com Python
+---
+* Não deixar por valores negativos;
+* Inicialmente vai ser apenas um usuário por vez;
+* Todos os depósitos devem ser armazenados em uma variável e exibiidos na operação de extrato;
+* Até 3 saques, por limite máximo de saque de R$500,00;
+* Exibir no formato R$ xxx.xx
+* Regra de depósito;
+* Regra de saque;
+* Regra de extrato;
+* Foi criado um repositório e entreque o dasafio;
+-----------------------------------------------
+-----------------------------------------------
+Trabalhando com Listas em Python
+---
+* Intrudução
+- Repositório: https://github.com/digitalinnovationone/trilha-python-dio
+> O material está dividido por branchs
+# A branch que tem esse material é a 01_estrutura_de_dados
+---
+* Listas: Criação e acesso aos dados
+- Pode ser declarada usando [] ou com o construtor nomeDaLista = list("abcde") o resultado é nomeDaLista = ["a","b","c","d","e"]
+- A lista pode ter valores diversificados com tipos diferentes;
+- list(range(10)) gera uma lista de números de 0 a 9;
+- A lista é uma sequência é possível acessar os dados utilizando indices;
+> 0 péga o primeiro -1 pega o último;
+- Fatiamento: acessa diretamente um conjunto de elementos passando o indice inicial e/ou final
+> Não é obrigatório passar os 2 indices;
+---
+* Métodos da class list
