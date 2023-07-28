@@ -334,3 +334,89 @@ Trabalhando com Listas em Python
 > Não é obrigatório passar os 2 indices;
 ---
 * Métodos da class list
+- append() - Adiciona elementos a lista;
+- lista.clear() - Limpa a lista
+- lista.copy() - Faz uma cópia da lista para outra lista;
+- lista.count() - Conta os elementos da lista;
+- lista.extend() - Concatena 2 listas;
+- lista.index("elemento") Retorna o indice da primeira ocorrência do elemento na lista;
+- lista.pop() - Uma lista funciona como uma pilha de prato e o pop remove o último prato ou no caso elemento;
+- lista.remove("elemento") - Remove a primeira ocorrência do elemento na lista;
+- lista.reverse() - Põe a lista de tras para frente;
+- lista.sort() - Ordena a lista em ordem padrão alfabética;
+> lista.sort(reverse=True) - Ordena a lista em ordem alfabética depois põe de tras para frente;
+> lista.sort(key=lambda x: len(x))
+- len(lista) - retorna o tamanho da lista;
+- sorted() - Ordena interaveis como o sort;
+- Material: https://academiapme-my.sharepoint.com/:p:/g/personal/nubia_dio_me/EVPXb3r8bPBEryfuvxp2uhABKXdIyWyufNXAjxQuOzabdQ?rtime=CNT9xDSO20g
+-----------------------------------------------
+-----------------------------------------------
+Conhecendo Tuplas em Python
+---
+* Tuplas
+- São parecidas com listas;
+- Os valores da tupla não podem ser alterados;
+- Pode ser decladas assim: letras = ("M", "A", "Y", "C") - Por virgula no final para não dar erro;
+> ou assim: caracteres = tuple("M", "A", "Y", "C");
+- Podem armazenar todos os tipos de objetos;
+- Usa-se tupla para garantir que os valores não sejam alterados e essa é a diferença da lista;
+- Fatiamento é a mesma lógica da lista;
+- Tem menos médotos que a lista;
+- Métodos:
+> count()
+> index()
+> len()
+- Material: https://academiapme-my.sharepoint.com/:p:/g/personal/nubia_dio_me/ER_pCeDKskRCvfnbSsQtZ7gBnX3Nk7I0_jotj52VPltL3Q?e=BOheig
+-----------------------------------------------
+-----------------------------------------------
+Explorando Conjuntos em Python
+---
+* Conjuntos
+- Criando sets
+> set: É uma coleção que não possui objetos repetidos;
+> Se usar set(lista) ele vai eliminar os elementos repetidos em uma lista;
+> Conjuntos não possuem indexação então depois de usar o set é necessário converter para uma lista novamente;
+- union() concatena dois conjuntos;
+- intersection() Retonar os elementos que estão iguais nos dois conjuntos;
+- difference() Retorna todo o que em um conjunto que não está no outro;
+- symmetric_difference() Retorna tudo o que não está na intersecção;
+- issuperset() Verifica se todos os elementos de um conjunto estão dentro de outro conjunto;
+- isdisjoint() Verifica se todos os elementos de um conjunto não estão dentro do outro conjunto;
+- add() Adiciona um elemento a um conjunto se ele já não existir;
+- clear() Limpa
+- copy() Faz uma copia
+- discard() Dicarta um elemento específico, não da erro se o elemento não existir
+- pop() Neste caso ele remove o elemento da frente
+- remove() Remove um elemento específico, da erro se o elemento não existir e essa é a diferênça para o discard();
+- len() Retorna o tamanho do conjunto;
+- 10 in numeros - Verifica se o 10 está no conjunto numeros retornando True ou False;
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/nubia_dio_me/EWxVjZ3N_-5OmGYkDrdEQkoB0NuroEV5wvMavMOA9-nI2Q?e=Nr7pE0
+-----------------------------------------------
+-----------------------------------------------
+Aprendendo a Utilizar Dicionários em Python
+---
+* Dicionários: Criação e acesso aos dados
+- Dicionário é um conjunto não-ordenado de pares chave:valor
+> Para ser uma chave válida pa o dicionário tem que ser um valor imutável;
+> {"cave": "valor"} ou
+> dict(chave="valor") ou
+> dicionario["chave"] = "valor"
+- Dicionário aninhados
+> Quando tem uma estrutura dentro da outra;
+- items() Retorna uma lista de tuplas
+---
+* Métodos da classe dict
+> dict.fromkeys([]) Serve para criar as chaves sem vincular nenhum valor;
+> dict.fromkeys([], "valor_padrao") Criar um conjunto de chaves com um valor padrão para elas;
+> contatos.get() Verifica se uma chave existe ou não se não encontrar a chave retorna None;
+> contatos.get("", {}) Da para por um valor padão caso não encontrar a chave
+- keys() Retorna só as chaves;
+- pop() Remove e retorna o valor removido;
+- popitem() Você não informa qual a chave e ele vai retirando na sequência;
+- setdefault("elemento") Se não existir é adicionado o elemento caso existir retorna o valor apenas;
+- update() - Altera usando uma chave já existente;
+- values() - Retorna todos os valores sem as chaves;
+- Você pode usar o in para verificar se tem uma chave no dicionário;
+- del dicionario["chave"] apaga o que está na chave informada;
+- del dicionario apaga todo o dicionario
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/nubia_dio_me/EebIipXNLf9GsduivQenMpUBtoohPY2ITXh1HnkB0wa2dg?rtime=EBe0DQ6P20g
