@@ -465,7 +465,114 @@ Otimizando o Sistema Bancário com Funções Python
 > \t é para deixar mais vistoso;
 -----------------------------------------------
 -----------------------------------------------
+Introdução a Banco de Dados
+---
+* Visão Geral da Formação SQL Database Special
+---
+* Apresentação inicial
+- Tutora: Júliana Mascarenhas
+---
+* Cenário de dados
+- Tudo são dados;
+- Buscador, tratamento de dados, games, GPS;
+- SGBD;
+- Aumentou-se a capacidade de processamento e armazenamento;
+- Big Data, 3 Vs;
+> Velocidade;
+> Variedade;
+> Volume;
+- Bancos noSQL
+- Cloud
+---
+* O que são banco de dados
+- Dados são fatos ou uma observação sobre algo;
+- Conjunto de dados que transmite informações;
+- Conjunto, uma coleção de palavras que dentre elas a um relacionamento;
+- Contexto - representação do mundo real;
+- Coerência;
+- Propósito;
+- Ações: Consulta, modificação, atualização;
+- Confiável e acurado;
+- Reflexo "imediato";
+- Amazon: 60 milhões de users, 42 Terabytes, SGBD distribuído;
+- SGBD ou DBMS;
+> Definição;
+> Construção;
+> Manipulação: Relatórios, Updates;
+> Compartilhamento: Simultaneidade, Acesso, por padrão o BD realiza o bloqueio e a liberação das tabelas;
+> Transaction;
+> Acesso, Mal funcionamento, Proteção, Ciclo de vida de longo prazo;
+> Metadados: Informações que fornecem uma descrição consisa dos dados contidos no BD;
+---
+* Breve Histórico de SGBDs
+- O conceito surge em 1960 para Diminuir custos;
+- 1990 surge a POO;
+- De 8MB para TeraBytes;
+- Modelo Hierárquico;
+> BDDBase;
+> COBOL;
+> Clipper;
+> Fox Pro;
+> IMS
+> REegistros;
+> TAD tree;
+- Modelo em Rede
+---
+* Modelo de Banco de Dados Relacional
+- Definição das tabelas e constrains para dados;
+- Comandos traduzidos pelo processador LDD;
+---
+* SGBDs mais utilizados pelo mercado
+- Oracle, MySQL, PostgreSQL, SQLServer, redis, mongoDB, T-SQL
+- ElasticSearch, Cassandra, MariaDB, Acces;
+- A diferença entre o MySQL e o MariaDB é que o MariaDB é código aberto;
+- Para escolher um SGBD:
+> Popularidade, tempo de mercado, Documentação;
+> Robustez, confiabilidade, segurança, Multiplataforma;
+---
+* A era dos dados e o futuro da modelagem - Parte 1
+- Contexto dos dados:
+> Papel central - sistemas corporativos;
+- Researching:
+> Nº de tarefas computacionais;
+> Quantidade de dados;
+> Heterogeneidade;
+> Computação paralela e distribuída;
+- 4º Paradigma:
+> Instrumentos e simulações
+> Novo modelo: base na análise e exploração de dados(e-ciência)
+> Modelo anterior: empírico, teórico e computacional;
+> REquisitos: Composição, Execução, Análise, Reutilização, Reprodutividade, abstração e escalabilidade;
+---
+* A era dos dados e o futuro da modelagem - Parte 2
+- 4º Paradigma;
+> Experimentos realizados em larga escala:
+# Paralelismo: Múltiplos processadores operando concorrentemente;
+# Big Data: Processamento paralelo de dados persistentes e particionados;
+# Clound: Recursos de terceiros - Soluções de tecnologia como serviço;
+- High Performance Computing (HPC);
+> Nós de processamento;
+> Sistema de arquivos paralelos - sem persistência;
+> Modelos: MPI, OpenMP, OpenCL;
+> Acesso: HFF5 e NetDCF;
+- Big Data
+> Process e Storage: nós de processamento;
+> Sistema de arquivos paralelos - persistente;
+> Modelos: MapReduce, Spark, SGBDs paralelos;
+---
+* Novo cenário e novas tecnologias - E agora?
+- Carreira tech em Data;
+- Data-driven;
+- Novos modelos de SGBDs;
+- Mercado de data
+> Engenheiro de dados
+# Desenho/contrução/
+# Sustentação das soluções de dados;
+# Extração de dados de fontes heterogêneas Disponibilizar os dados para serem consumidos pelos analistas e cientistas;
+> Cientista de dados;
+> Analista de dados;
 
-cupom = input()
-    if(cupom == "10%" || cupom == "20%"):
-      cupom = cupom.range(0, 1)
+
+PAREI EM: 03:05
+-----------------------------------------------
+-----------------------------------------------
