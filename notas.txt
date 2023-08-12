@@ -570,9 +570,19 @@ Introdução a Banco de Dados
 # Sustentação das soluções de dados;
 # Extração de dados de fontes heterogêneas Disponibilizar os dados para serem consumidos pelos analistas e cientistas;
 > Cientista de dados;
+# Modelagem
+# Reconhecimento de padrões / Predição
 > Analista de dados;
-
-
-PAREI EM: 03:05
+# Criação de dashboards
+# Apresentação visual dos dados
+- Data-Driven
+> Analise entende e depois decida;
+- Modelos NoSQL
+> Voltados para demandas massivas pontuais;
+> mongoDB, cassandra, redis, neo4j, db4objects
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EfdP8l5MJvRAmiZFTHypmeQBvVQrq0eWF21fgwJW4mO_qA?rtime=oKTqhdya20g
 -----------------------------------------------
 -----------------------------------------------
+Sistema de Gerenciamento de Banco de Dados
+---
