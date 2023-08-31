@@ -1899,5 +1899,10 @@ desafio.
 > Crie junções entre tabelas para fornecer uma perspectiva mais complexa dos dados;
 > Por no GitHub e submeter para avaliação;
 ###
-
-PAREI EM: Entendendo o desafio - Criando e Implementando um Projeto Lógico de Banco de Dados => 01:25
+---
+-----------------------------------------------
+-----------------------------------------------
+Construa um Projeto Lógico de Banco de Dados do Zero
+---
+* Já criei o repositório no GitHub:
+> https://github.com/Maycon-crz/construindo_um_projeto_logico_de_banco_de_dados_do_zero_no_contexto_de_uma_oficina_dasafio_dio/blob/main/README.md

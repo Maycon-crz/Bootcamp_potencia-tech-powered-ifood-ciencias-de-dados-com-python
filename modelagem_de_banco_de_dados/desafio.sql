@@ -26,6 +26,15 @@ insert into product (Pname, classification_kids, category, avaliação, size) va
 ('Farinha de arroz', false, 'Alimentos', '2', null),
 ('Fire Stick Amazon', false, 'Eletrônico', '3', null);
 
+INSERT INTO product (idProduct, Pname, classification_kids, category, avaliação, size) VALUES
+(1, 'Fone de ouvido', false, 'Eletrônico', '4', null),
+(2, 'Barbie Elsa', true, 'Brinquedos', '3', null),
+(3, 'Body Carters', true, 'Vestimenta', '5', null),
+(4, 'Microfone Vedo - Youtuber', false, 'Eletronico', '4', null),
+(5, 'Sofá retratil', false, 'Móveis', '3', '3x57x80'),
+(6, 'Farinha de arroz', false, 'Alimentos', '2', null),
+(7, 'Fire Stick Amazon', false, 'Eletrônico', '3', null);
+
 select * from clients;
 select * from  product;
 
@@ -81,6 +90,22 @@ insert into seller (SocialName, AbstName, CNPJ, CPF, location, contact) values
 ('Tech eletronics', null, 123456789456321, null, 'Rio de Janeiro', 219946287),
 ('Botique Durgas', null, null, 123456783, 'Rio de Janeiro', 219567895),
 ('Kids World', null, 456789123654485, null, 'São Paulo', 1198657484);
+
+select * from seller;
+
+-- idPseller, idPproduct, prodQuantity
+insert into productSeller (idPseller, idPproduct, prodQuantity) values
+(1, 8, 60),
+(2, 9, 10);
+
+INSERT INTO productSeller (idPseller, idPproduct, prodQuantity) VALUES
+(1, 1, 10),
+(1, 1, 20),
+(2, 2, 30),
+(2, 2, 40);
+
+select * from productSeller;
+
 
 -- criar tabela cliente
 create table clients(
@@ -209,3 +234,43 @@ create table productSupplier(
 -- desc productSupplier;
 
 show tables;
+-- *************************************************************************
+-- *******************************Desafio***********************************
+-- *************************************************************************
+-- Recuperações simples com SELECT Statement
+SELECT * FROM clients;
+SELECT * FROM orders;
+SELECT * FROM productStorage;
+SELECT * FROM supplier;
+SELECT * FROM seller;
+SELECT * FROM productSeller;
+-- Filtros com WHERE Statement
+SELECT * FROM clients WHERE Fname LIKE '%Maria%';
+SELECT * FROM orders WHERE orderStatus = 'Confirmado';
+SELECT * FROM productStorage WHERE quantity < 11;
+SELECT * FROM supplier WHERE CNPJ = '123456789123456';
+SELECT * FROM seller WHERE SocialName LIKE '%Kids%';
+SELECT * FROM productSeller WHERE idPseller = 1;
+-- Crie expressões para gerar atributos derivados
+-- clients
+SELECT concat(Fname, ' ', Lname) as Nome_cliente FROM clients;
+-- #orders
+SELECT COUNT(*) as qtd_pedidos_em_processamento FROM orders WHERE orderStatus = 'Em processamento';
+-- Defina ordenações dos dados com ORDER BY
+SELECT * FROM clients ORDER BY idClient DESC;
+-- Condições de filtros aos grupos – HAVING Statement
+SELECT
+  productSeller.idPseller, 
+  productSeller.idPproduct  
+FROM productSeller
+GROUP BY productSeller.idPseller, productSeller.idPproduct
+HAVING COUNT(*) > 1;
+-- Crie junções entre tabelas para fornecer uma perspectiva mais complexa dos dados
+SELECT 
+  clients.Fname,
+  clients.Lname,
+  clients.Address,
+  orders.idOrder,
+  orders.orderDescription
+FROM clients
+JOIN orders ON clients.idClient = orders.idOrderClient;
