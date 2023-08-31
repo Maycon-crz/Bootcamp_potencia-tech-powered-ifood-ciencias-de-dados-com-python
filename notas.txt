@@ -586,3 +586,1318 @@ Introdução a Banco de Dados
 -----------------------------------------------
 Sistema de Gerenciamento de Banco de Dados
 ---
+* Abordagem de SGBDs versus Abordagem Tradicional
+- Abordagem de BD
+> Esforço repetido
+> Redundância
+- O SGBD 
+> Permite representar perspectivas diferentes para grupos distintos;
+> Caracteristicas
+# Abstração, Auto-descrição, Isolamento, Compartilhamento, Múltiplas visão, Transação multiuser;
+---
+* Natureza Auto-descritiva de Banco de Dados
+- Descrição da estrutura e constrains
+- DB schema
+- Metadados e Schema
+---
+* Isolamento Program/data e Abstração
+- Abordagem tradicional
+> Modificação acarreta em reestruturação
+- Abstração e Transparência;
+---
+* Suporte à Múltiplas Visões dos Dados
+- Views (Você pode concatenar 2 ou mais tabelas em uma view, ou selecionar apenas dados específicos de uma tabela para fazer parte da view);
+---
+* Compartilhamento de dados e processamento de Transações Multiusuários
+- Concorrência
+- Múltiplo acessos
+- OLTP (Sucessão de operações, uma série de operações)
+> Gerenciador: transações concorrentes;
+> Execução sem interferência
+> Operacional, Processamento de dados
+> Ambiente operacional
+- OLAP
+---
+* Abordagem de banco de dados - Quais são os Atores em Banco de Dados
+- Atores
+> Design
+> Manutenção
+> Usabilidade
+> Designer
+> Administrador
+> Usuários Finais
+# Casuais
+# Ingênuos
+# Sofisticados
+# Standalone
+---
+* Workers em background - Banco de dados
+- Background
+> Designer do SGBD;
+> Implementação do SGBD;
+> Pessoal de operação e manutenção;
+> Desenvolvimento de ferramentas;
+---
+* Vantagens de Utilizar a Abordagem de SGBDs
+- Abstração
+- Isolamento
+- Controle de Redundância
+- Restrição de acesso
+- Storage persistência e estrutura
+- Backup e Recovery
+- Controle de Redundância
+> Desnormalização
+- Restrição de acesso
+> Subsistema secundário
+- Storage prove persistência e estrutura
+> Provendo persistência
+> Caching
+> Buffering
+> Indexação
+- Backup e Recovery
+> Perfil de usuário
+- Integridade de dados
+> constraints
+> Inferência
+> Ação com regras
+> Triggers
+---
+* Ganhos em utilizar SGBDs
+- Entre databases dentro da organização
+- Padronização
+> Estrutura definida
+> Tipos de dados
+> Base dos relatórios
+- Redução de tempo no desenvolvimento da aplicação
+- Flexibilidade
+- Time
+> Adicionar ano que cursou matéria
+> Adicionar coordenador
+- Disponibilidade de update imediato
+- Economia de escala
+---
+* Quando não usar SGBDs
+- Custo de overhead
+- Custo-benefício
+- Custo
+> Investimento inicial
+> Generelidade na definição e processamento
+> Segurança, controle de concorrência, recovery, funções de integridade
+- Não use um canhão para matar uma formiga
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EfdP8l5MJvRAmiZFTHypmeQBvVQrq0eWF21fgwJW4mO_qA?rtime=BIW44C-d20g
+---
+-----------------------------------------------
+-----------------------------------------------
+Modelagem de Dados para Banco de Dados
+---
+* Introdução à Modelagem de dados - Parte 1
+- Modelagem
+> Software, Dados..
+> Possui foco na representação do contexto
+> Mini-mundo, Alto nível, Esquema, SGBD;
+> Esquema
+# Facilita a compreensão do contexto dos dados;
+> Entidade-relacionamento, UML
+> Entidade, Atributo, Relacionamento, 
+> Um leigo consegue visualizar melhor como funciona a estrutura
+---
+* Introdução à Modelagem de dados - Parte 2
+- Linguagem declarativa
+> insert, select
+- id garante que não ocorram;
+- Definir relacionamento;
+---
+* Instalação do MySQL no Windows
+---
+* PostgresSQL Windows
+---
+* Instalação do MySQL no Ubuntu
+---
+* Instalação do PostgresSQL no Ubuntu
+---
+* Explorando Comandos básicos SQL
+- SHOW DATABASES;
+- CREATE DATABASE nome_do_banco
+- USE nome_do_banco
+- SHOW TABLES;
+- DROP DATABASE nome_do_banco
+- CREATE TABLE nome_da_tabela(
+    id INT AUTO_INCREMENT,
+    nome VARCHAR(250) UNIQUE
+  )
+> UNIQUE é para não ter redundância;
+- ALTER TABLE nome_tabela ADD CONSTRAINT fk_nome FOREIGN KEY (id) REFERENCES nome_tabela2(id);
+> Adicionando constraints
+- INSERT INTO nome_tabela (colunas) values(valores);
+- SELECT * FROM nome_tabela
+- DDL: Linguagem de manipulação usada pelos admins
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EfdP8l5MJvRAmiZFTHypmeQBvVQrq0eWF21fgwJW4mO_qA?rtime=22yY6-id20g
+-----------------------------------------------
+-----------------------------------------------
+Arquitetura de Banco de daddos
+---
+* Arquitetura BD: Modelos
+- Data model
+- Abstração
+- Essencial
+- Classificação
+> Especialista
+# Modelos de dados físico
+> Generalização, especialização
+> Modelo entidade, relacionamento
+> Representacional
+> Modelos de dados auto-descritivo
+---
+* Arquitetura de BD: Esquema, Instâncias e Estados de um BDs
+- Esquema
+> É a Base geral
+> Diagramas
+> Descrição
+> Entidades dentro de esquemas são denominados Construct
+- Snapshot
+> Mudança de estado
+# Estado inicial
+# Estado válido
+- Metadados
+---
+* Three-Schema Architecture
+- Arquitetura
+> Aplicações de Usuário
+> Físico BD
+> Modelo de implementação
+# entidades, operações de usuário, constraints, relacionamentos
+> Modelo conceitual
+> O isolamento entre o nivel interno e externo não é explicito
+- Interdependência de dados
+> Lógica 
+> Física
+---
+* Linguagens para SGBD
+- DDL - Data Definition Language
+- SQL
+- SDL
+- VDL
+- DML
+> Alto nível | Não procedural
+> Baixo nível | Procedural
+> Se preocupa com o que recuperar e não como recuperar;
+---
+* Interfaces de SGBDs
+- Web Clients
+- App Mobile
+- Forms
+> Preenchimento total ou parcial
+- GUI
+> Interface gráfica de usuário / interface: Diagrama
+- NLI
+> Busca pela palavra reservada e conteúdo
+> Interpreta a linguagem natural
+- Pesquisa Keyword
+> Macth: palavra/doc
+- Speech input/output
+> Contexto limitado
+- Interfaces
+> Naive
+# Operações repetitivas
+> DBA
+# DBA Staff
+---
+* Ambientes e utilities de SGBD
+- Componentes
+> Esquema
+> Software
+> Modularizado
+> Info de módulos
+> Acesso ocasional
+> Runtime database processor
+> Buffering e caching
+- Utilities - Gerenciamento
+> Monitoramento
+> Reorganização do storage
+> Backup
+> Loading
+- Ferramentas e aplicações
+> Data dictionary system
+> DB Designer
+---
+* Arquitetura Modelo Cliente-Servidor
+- Arquitetura
+> Arquitetura Física Centralizafa
+> Model
+# Provedor de serviços
+> ODBC Driver
+> JDBC Java
+> Arquitetura lógica e física cliente/servidor
+# Two-tier
+> Arquitetura lógica cliente/servidor
+# Three-tier
+---
+* Classificação de SGBDs
+- Classificação, Parametros
+> Modelo de dados
+> Nº de sites
+> Custo
+> Tipo de caminho de acesso
+# Nome file
+> Performance
+# OLTP
+- Classificação - Relacional
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EfdP8l5MJvRAmiZFTHypmeQBvVQrq0eWF21fgwJW4mO_qA?rtime=4YToAbKe20g
+-----------------------------------------------
+-----------------------------------------------
+Fundamentos de Modelagem e Projeto de Banco de Dados
+---
+* Discursando sobre as características de um Banco de Dados
+- Objetivo Geral
+- Caracteristicas
+> Gerenciamento e manuteção de dados
+- Mundo Fechado
+> Preposição
+> Predicado
+---
+* Mundo Fechado e mini-mundo
+- Munco Fechado
+> Completude
+- Mini-mundo
+> Mundo Real
+> Modelo Lógico
+> CWA
+> Conceito fechado
+---
+* Álgebra Relacional
+- É uma Linguagem formal para consulta/extração de dados
+- Teoria dos Conjuntos
+> Conjuntos de operações
+> Conjuntos de funções
+---
+* Álgebra Relacional e Projeto de Banco de dados
+- Álgebra Relacional
+> Resultado de ação
+> Retira a dependência da aplicação de dados
+- Tradeoff (Dilema)
+> Insert
+> Clock do sistema
+> Disponibilidade de tempo de gravação
+- Processo
+> Projeto conceitual, físico,
+> Produção
+> Projeto lógico
+> Validação
+> Manutenção
+---
+* Falando sobre Modelagem
+- Modelagem de dados
+> BD particular, Softwares , Queries e updates
+> Design, Implementação, Teste
+- Desenvolvimento
+> Disign de BDs, Engenharia de software;
+> Não enrijeça o processo
+> Planejar, Fazer, Checar, Agir
+---
+* Projeto: Como "nasce" um Banco de Dados
+- Desenvolvimento
+> Como implementar um BD
+# Entender o contexto e requisitos
+# Perfil
+# O que eu quero representar?
+> Implementação
+> Modelo
+> Arquitetura
+> Funcionalidades
+- Cenários
+> Colaboradores
+> E-commerce
+> Universidade
+> Produção
+> Bacon (Financeirpo)
+> Farmácia
+> Bibliotecas
+- Desenvolvimento
+> Como resolver? 
+# R:Modelagem
+---
+* Design de BDs - Projeto Conceitual
+- Projeto Conceitual
+> Linguagem de modelagem de dados
+# Gráficas
+# Textuais
+# Adendo: Existem 3 formas de criar um algoritmo
+# Objetivo: Representar
+> 1º passo
+# Coleta de dados
+# Análise
+> Esquema Conceitual
+# Modelo entidade Relacionamento
+# UML - Diagrama de classes
+> Requisições funcionais
+# Foco no engenheiro de software
+> Modelo de Alto nível
+# Requisitos Funcionanis
+# Requisitos Não Funcionanis
+# Não tem compreenção de como será armazenado
+> Dados e requisitos
+# Coletados e Analisados
+---
+* Exemplificando o Projeto Conceitual e Processo
+- Projeto Conceitual
+> Análise das queries
+> Design Conseitual
+> Conceitos de Alto Nível
+- Processo
+> Projeto Conceitual => Lógico => Físico
+---
+* Implementação: Projeto Lógico e Físico
+- Projeto lógico
+> Descrição do modelo conceitual
+> Depende do modelo do banco de dados
+> Tabelas => Estrutura => Organização dos dados
+> Mapeamento
+> Percurso
+> Criação do esquema lógico
+> Mapeamento ER para Modelo Relacional
+# Entidades
+# Relacionamento 
+# Atributos
+- Projeto Físico
+> Parametros físicos
+# Estrutura e índices
+# Organização e caminhos de arquivos
+# Segurança, performance
+> Alocação de memória
+> Particionamento de tabelas
+---
+* Fases de desenvolvimento de BDs e Aplicações
+- Desenvolvimento
+> Levantamento de Requisitos
+# Premissas
+# Privacidade
+> Implementação
+> Validação e Teste
+- Aplicações
+> OLTP
+> OLAP
+> HTAP
+---
+* Aplicação: Modelagem de dados
+- DER
+- Company
+- Descrição do mini-mundo
+- UML
+- DR
+- Instâncias
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EQuIhWS1bllGrr4XgGQ0SnwBRsNfBrJM5Ol1HFzdkVb4YQ?e=2mQewM
+-----------------------------------------------
+-----------------------------------------------
+Modelo de Entidade Relacionamento com Banco de Dados
+---
+* Modelo ER: Tipos de Entidades, Chaves e Atributos
+- Processos
+- Modelos ER
+> Modelo conceitual
+# Atributos, Relacionamentos, ...
+- Diagrama ER
+> Raras modificações
+> Facilidade de manipular
+> Esquema ER do banco de dados
+> Foco no esquema
+- Entidades
+> Componente básico
+> Existencia independente
+> Atributos
+> Entidades
+> Objetos
+- Atributos
+> Características/Descrição das entidades
+> Atômicos
+> Compostos
+# A estrutura acaba variando
+> Multivalorados
+# Mais de um dados concatenado
+> Stored/Derivados
+> Nulos
+# Opcional
+- Entidades
+> Tipo
+> Coleção (instâncias)
+> Esquema
+> Elementos DER
+# Entidades
+# Atributos
+# Chave
+---
+* O que é a Entidade Fraca no modelo ER?
+- Entidade Fraca
+> Chave não obrigatória
+> Dependência
+> Exclusão cascata
+---
+* Exemplo de modelo conceitual - Company
+- Exemplo - Company
+> Atributo composto
+> Refinamento
+---
+* Relacionamentos, Papéis e Constraints estruturais
+- Relacionamentos
+> Classificado
+# Grau: Binário, Ternário
+# Auto-relacional ou não
+# Cardinalidade
+> Relacionamentos com Atributos
+> Papel | Atribuição
+> Auto-relacionamento
+---
+* Constraints de Relacionamentos Binários
+- Constraints - Cardinalidade
+- Constraints - Participação
+- Atributos de relacionamento
+> Decisão subjetiva de Design
+> Madatório
+---
+* Tipos de Entidades Fraca
+- Entidade Fraca
+> Tipos de entidades
+# Fracas 
+## Depende de outra
+## Representada por um retângulo
+# Fortes
+- Notações
+> Atributo derivado
+> Atributo composto
+- Construtures do Esquema
+> Convenção - Nomeando
+---
+* Refinando o design ER para Company
+- Exemplo - Company
+- Refinando - Company
+> Relacionamentos
+---
+* Alternativas - UML
+- Outras Notações
+> Linguagem para desenvolvimento de software
+> Trabalha com visões: interpretada e construída
+> Compreensão facilitada
+> Liberdade para o desenvolvedor
+> Orientação a objeto
+> Principais diagramas
+# Casos de uso
+# Classe
+# Interação
+> Associação binária
+> Associação reflexiva
+> Multiplicidade *
+> Relacionamentos
+# Associação
+# Agregação
+---
+* Relacionamentos de Alto Grau
+- Ternário, ..., N-ário
+- Perspectiva diferente do binário
+- Instancias refletem a visão
+- Relacionamento N-ário
+> Supplier
+> Supply
+> Project
+> Part
+---
+* Exemplificação de Relacionamentos N-ário - Consulta médica
+- Ternário
+- Agregação
+---
+* Exemplificação Relacionamentos N-ários - Curso e Entrevista
+- O Relacionamento mais usado é o Ternário
+---
+* Materia: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EQuIhWS1bllGrr4XgGQ0SnwBRsNfBrJM5Ol1HFzdkVb4YQ?rtime=0r0zeomf20g
+-----------------------------------------------
+-----------------------------------------------
+Modelo Relacionamento de Entidade Aprimorado com Banco de Dados
+---
+* Modelo EER
+- Modelo ER - 1970
+- EER: Novos conceitos semânticos
+- Desenvolvidos fora da área de BDs
+- Diagrama ERR
+- Entidades => Objeto
+- Herança
+- Superclasses
+> Generalização
+- Subclasses
+> Especialização
+- Tipos de entidades
+- Conjuntos de entidades
+- Subclasse e subtipo
+- Classe Mãe: Superclass
+- Classe Filha: Subclass
+---
+* Herança
+- Permite criar uma nova classe a partir de uma já existente
+---
+* Especialização e generalização
+- Especialização: Subclasses
+- Cunjunto de subclasses: tipo de entidade
+- Diferenciação: propriedades e atributos específicos
+- Instâncias
+- Mesma representação de mundo real
+- Papel especializado
+- Motivação
+---
+* Generalização versus Especialização
+- Modelo Enhanced ER
+- Generalização
+> Inverso da especialização
+> Propriedades comuns as entidades
+---
+* Constraints de Generalização e Especialização - parte 1
+- Constraint:
+> Predicated-defined (condição)
+> Attribute-defined Specialization
+> User-defined
+> Disjointness constraint
+> Overlapping
+> Completeness constraint
+> Regras
+# Deletar
+## Superclasse -> subclasses
+# Inserçao
+## Entidade em superclasse -> predicated-defined
+## Entidade em superclasse com total -> subclasse macth
+---
+* Hierarquia e Rede de Especialização
+- Hierarquia de Especialização
+> Uma subclasse não pode ter mais de uma superclasse
+- Rede de Especialização
+> Uma subclasse pode ter mais de uma superclasse
+> Herança múltipla
+# Subclasse compartilhada
+# Algumas linguagens não suportam
+# Preferivel hierarquia de especialização
+---
+* Modelagem de Union Types usando Categoria
+- Union Type
+> Tipo de relacionamento que visa mesclar entidades diferentes
+> Categorização
+---
+* Esquema EER e Definições formais
+- Departamento
+- Atributos
+---
+* Decisão sobre Design de BD e UML
+- Decisões de Design
+> Guideline
+# Sub/Superclasses: Acurácia x Desordem
+# Merge de subclasse em uma superclasse: relacionamentos e poucos atributos
+# Union Types: evitados por padrão
+# Escolhar guiadas por mini-mundo
+- Representando por UML
+> Foco na modelagem de dados
+> Diagrama de classes
+> Classes concretas (igual as classes abstract de POO)
+- UML > Especialização
+---
+* Terminologias Alternativas - Parte 1
+- Knowledge representation (KR)
+> Representação do conhecimento
+> Ex: Corretor ortográfico
+- Ontologia
+> É o ramo da filosofia que estuda conceitos como existência, ser, devir e realidade.[3][4] Inclui as questões de como as entidades são agrupadas em categorias básicas e quais dessas entidades existem no nível mais fundamental. A ontologia é às vezes referida como a ciência do ser e pertence ao maior ramo da filosofia conhecido como metafísica.
+> Domínio
+> Alimenta o BD com informações sobre o domínio, suas propriedades lógicas
+> Conceitos abstratos
+# Classificação
+# Identificação
+# Especialização e Generalização
+# Agregação e Associação
+> Thesaurus: Relacionamentos x conceitos
+> Taxonomy: Relacionamento de conceitos com estruturas
+> Esquema detalhado: Descrição de conceitos
+> Lógica teórica: Lógica matemática para definição de conceitos
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/EQuIhWS1bllGrr4XgGQ0SnwBRsNfBrJM5Ol1HFzdkVb4YQ?rtime=dXi7RBuh20g
+---
+-----------------------------------------------
+-----------------------------------------------
+Modelo Relacional e Mapeamento Relacional com Banco
+---
+* Conceitos de Modelo Relacional: Tupla, Atributo e Relação - Parte 1
+- Conceitos formais do Modelo Relacional
+> Modelo Relacional: Colesão de Relações
+> Tabelas X Arquivos
+> Entidade
+> Domínio
+> Tupla (intância da tabela)
+> Atributo
+> Relação
+> Valores atômicos
+> Grupos: especificando nomes
+---
+* Conceitos de Modelo Relacional: Tupla, Atributo e Relação - Parte 2
+- Esquema Relacional
+- Relação é uma descrição de uma tabela
+- Ai: atributo
+- D: domínio
+- Prefira varchar
+---
+* Conceitos de Modelo Relacional: Cardinalidade, Domínio e Relação
+- Cardinalidade
+- Total de instâncias
+- Produto catesiano
+- Tudo é formado atravéz de equações
+- Domínio
+- Papel (Role)
+- Características da Relação
+> Relação
+> Arquivos
+> Tabelas
+> Ordenação de Tuplas na Relação
+---
+* Conceitos de Modelo Relacional: Conjunto de Tuplas
+- Lista de tuplas - Ordenação
+- Conjunto de tuplas - Nível Abstrato
+> atributo, valor
+- Ordenação de valores dentro da Tupla
+---
+* Conceitos de Modelo Relacional: Valores Nulos
+- Valores Nulos
+> Valor desconhecido
+> Valor existente mas indisponível
+> Atributo não se aplica
+> Valor indefinido
+> Valores nulos nas tuplas
+- Significado de Relação
+> Afirmação
+> Predicado (Formado por um ou mais verbos, é aquilo que se declara sobre a ação do sujeito, concordando em número e pessoa com ele.)
+> Preposições (É equivalente as instâncias)
+---
+* Lógica de predicado dentro do mundo de SGBDs
+- Lógica de Predicados
+> Afirmações declarativas
+> Validade de Argumentos
+- Uppercase: Relações = Q, R, S
+- Lowercase: Estado de Relação - q, r, s
+- Letras: Tuplas
+---
+* Constraints do Modelo Relacional
+- Composição do mini-mundo
+> Relações
+> Constraints
+- Categorizadas
+> Inheret Model-based Constraints
+# Caracteristicas das relações
+> Schema-base Constraints
+# DDL
+> Application-base Constraints
+> Dados do Contexto de Banco de Dados
+- Dependências de dados
+- Dependências funcionais
+---
+* Constraints Baseadas no Esquema do Banco de Dados
+- Constraints de Domínio
+> Integer
+> Float
+> Time
+> Strings
+> Integer
+> Timestamp
+> Date
+- Constraints de Chave
+> Uniquenness constraints
+> Chave primária e candidata
+> Valores nulos em atributos
+- Uniqueness Constraint
+> Subconjunto de atributos
+> Chave e Superchave
+> Chave candidata
+---
+* SGBDs e Esquemas Relacionais
+- Esquema relacional
+> SGBD é um subconjunto de relações
+> Estado de um SGBD relacional
+> Domínio e Conceito
+> Restrições de integridade
+# DDL - Data Definition Language (Create, Drop, Insert, Rename...)
+# DML - Data Manipulation Language (Insert, Update, Delete, Merge)
+# DCL - Data Control Language (Grant, Revoke)
+# DQL - Data Query Language (Select)
+- Estado SGBD - Company
+- Integridade
+> Constraints de Integridade
+> Constraints de domínio, chave, Not Null
+> Integridade de entidade
+---
+* Integridade Referencial de Entidade e Chaves Estrangeiras
+- Integridade
+> Cheve Primária != NULL
+> Consistência entre entidades
+> Integridades referencial
+- Chave estrangeira
+- Outras constraints
+> Constraints - semânticas
+# Salário máximo do supervisor
+# Carga horária
+---
+* Mapeamento ER - Relacional
+- Mapeando
+> Design Lógico do Projeto
+- Projeto Lógico
+- Algoritmo de Mapeamento
+> Referência
+> Relação
+> PK - Simples ou Composta
+> Unique Constraint
+> FK - Foreign Key
+> Entidades Fortes
+- String Entity Mapping
+> Relação Entidade - Entity Relation
+> Entidades Fracas (Dependências)
+---
+* Mapeamento de Relacionamentos Binários 1:1
+- Algoritmo de Mapeamento
+> Foreign Key
+> Merge dos relacionamentos
+> Cross-reference
+> Relacionamento Binário 1:1
+> Participação Total
+> Abordagem FK
+> PK de S -> FK em T
+> Relacionamento Total
+> Merge
+---
+* Mapeamento de Relacionamentos Binários 1:N
+- Abordagens:
+> Foreing Key
+# Possui um lado definido no gráfico
+> Relationship relarion
+> Relacionamento Binário 1:N
+---
+* Mapeamento de Relacionamentos Bináriso N:M
+- Algoritmo de Mapeamento
+> works_on
+# Entidade Fraca
+- Mapeando aributos para o Modelo Relacional
+> Algoritmo de Mapeamento
+> Abordagem
+# Componentes simples
+> Atributos Compostos
+> Atributos Multivalorados
+---
+* Mapeamento de Relacionamentos N-ários
+- Modelo ER
+> Atributo Simples...
+- Modelo Relacional
+---
+* Mepeando os componentes do EER - parte 1
+- Algoritmo de Mapeamento
+> Especialização
+# Única tabela
+# Multiplas tabelas
+> Superclasse e subclasse
+> Multiplas relações
+> Multiplas relações - Sub/superclasse
+> Multiplas relaçõe Subclasse apenas
+---
+* Mapeando os Componentes do EER - parte 2
+- Algoritmo de Mapeameno
+> Relação única - 1 tipo de atributo
+> Atributos de tipo
+> Relação única - Múltiplos atributos Type
+> Multiplos Atributos de tipo
+> Mesmo atributo chave
+> Herança multipla
+> Union Type
+> Chave substituta
+> Chave Primária
+> Chave Estrangeira
+---
+* Estudo de caso: Mapeando o Esquema Conceitul (ER) para Relacional Dentro do Contexto de Ordem de Serviço
+---
+* Material: https://academiapme-my.sharepoint.com/personal/renato_dio_me/_layouts/15/Doc.aspx?sourcedoc=%7B08fbb726-433e-4df0-9084-9d8c9317b0a6%7D&action=default&slrid=881ed3a0-904f-4000-1c3c-de8ef7cc80d3&originalPath=aHR0cHM6Ly9hY2FkZW1pYXBtZS1teS5zaGFyZXBvaW50LmNvbS86cDovZy9wZXJzb25hbC9yZW5hdG9fZGlvX21lL0VTYTMtd2ctUV9CTmtJU2RqSk1Yc0tZQm1MUE1LUU5INTFKcksxY1ZyOVA4Y2c_cnRpbWU9dnN2ZmltMmoyMGc&cid=ce8351d4-f29e-42ff-a51f-c03ad7a42363&_SRM=0:G:61&file=M%c3%b3dulo%203%20-%20Explorando%20a%20Linguagem%20de%20Consulta%20a%20Banco%20de%20Dados%20SQL%20%e2%80%93%20Structured%20Query%20Language.pptx
+-----------------------------------------------
+-----------------------------------------------
+Primeiros Passos com SQL
+---
+* Introdução ao SQL
+- Explorando a SQL
+> Linguagem para manipulação de dados
+> Execução de operações
+> Modificação de dados e estrutura
+> Adicionar, remover ou atualizar linhas
+> Recuperação de um subconjunto de informações do bando de dados;
+---
+* Sublinguagens: Classificação de SQL - DDL
+- Classificações:
+> DDL - Data Definition Language
+# CREATE, DROP, ALTER
+# INSERT, UPDATE, DELETE
+# RENAME, TRUNCATE, MERGE
+# Usuário, Esquema, Statements, Indexing
+---
+* Explorando um Primeiro Exemplo utilizando DDL
+---
+* Primeiro Contato com SQL e MySQL
+- show databades; (Mostra todos os bancos)
+- show schemas; (Mostra todos os bancos)
+- drop database nome_do_banco;
+- desc nome_do_banco;
+---
+* Considerações sobre o ambiente do SGBD
+---
+* Criando meu Primeiro Esquema no MySQL - parte 1
+---
+* Criando meu Primeiro Esquema no MySQL - parte 2
+---
+* Populando o Banco de Dados do Meu Primeiro Exempo
+---
+* Continuando com as Classificações(DML, DCL e DQL), Statements, Cláusulas, Termos e Esquemas;
+- Introdução ao SQL
+> Classificações
+# DCL - Data Control Language
+# DQL - Data Query Language
+> Statement
+# Comando/instruções
+# Reconhecido pelo BD
+# Retorno: registro de dados
+> Cláusulas SQL
+# Função -> Instrução
+# Algumas são obrigatórias
+# SELECT now(); (Não necessita do FROM)
+# SELECT, FROM, WHERE, ORDER BY, GROUP BY, HAVING
+> Termos - SQL
+# Identificador
+# Operador
+> Contante
+> Expressão
+> Modelo Relacional
+> Modelo ER
+---
+* Definindo o Esquema de COMPANY Com SQL
+---
+* Tipos de dados no MySQL
+- Fixo: 255 bytes
+- Variável: 65.535 bytes
+- Char, Varchar
+- Texts types
+- Conjunto de caracteres
+> Alfabeto, Portugues, inglês
+- Text data
+> < 65KB
+- Dados numéricos
+- Dados temporais
+---
+* Constraints: Especificando Restrições em SQL
+- Constraint
+> NOT NUL
+> PK e SK
+> Default
+# Valor
+> Check
+# Domain
+> Delete
+# Comportamento
+> Primary key
+> Unique
+> Create table
+- Violação de Constrints
+> Referencial Triggered
+> Nomear
+> Check
+> Row-based
+---
+* Queries/Insertion com SQL
+- SQL Queries
+> Comportamento
+# Multiset - not set
+# Duplcações (Redundâncias)
+# Custoso - Melhor previnir
+# Distinct
+> Mapping
+# Projeção de atributos
+> Operadores
+> DML
+# Subconjunto do SQL
+# Mais utilizado
+# Comandos: insert, ...
+# NULL e NOT NULL
+---
+* Adicionando constraints ao nosso Banco de dados
+---
+* Adicionando constraints ao nosso Banco de dados com Alter Table
+---
+* Persistindo informações no banco de dados Employee
+- Da para inserir mais de um registro de uma vez usando insert into
+---
+* Recuperando dados com Queries SQL
+---
+* Nomes, Aliasing e Variação de tuplas
+- Identificando a tabela
+- Nomes de atributos
+> Ambiguidade
+> Diferenciar atributos
+- Renomeando atributos
+> Nomenclatura diferente
+> Referências múltiplas
+---
+* Realizando Queries com Alias
+- Alias (Ex: nome_tabela as t) Retira ambiguidades é um apelido que se cria para o nome das tabelas
+---
+* When Good Statements Go Bad (Quando os nossos bons stados vão mau)
+- Problemas
+> PK e FK inexistente
+> Conversão inválida
+---
+* MySQL e PostgreSQL e suas diferenças
+- Postgresql
+> Otimizado para aplicações complesxas
+> Grande volume de dados \ informações críticas
+> E-commerce
+- MySQL
+> Possui agilidade e versatilidade
+> Operações mais simples
+> Processamento e tempo curto de resposta
+> Site | Fórum | Portal
+- Ponderação
+> Precisa de Rollback? MySQL não possui Enterprise
+> Precisa de agilidade? Use MySQL
+> Fácil utilização MySQL
+> Operação mais simplificada Use MySQL
+---
+* Materiais de Apoio: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/ESa3-wg-Q_BNkISdjJMXsKYBmLPMKQNH51JrK1cVr9P8cg?rtime=lsz5c4Cm20g
+* Links Úteis:
+- https://web.dio.me/articles/passo-a-passo-de-instalacao-do-mysql-no-windows?back=%2Farticles&open-modal=true&page=1&order=oldest
+- https://www.mysql.com/
+- https://www.postgresql.org/
+- http://sqlfiddle.com/
+- https://www.w3schools.com/sql/
+- https://sqlzoo.net/
+-----------------------------------------------
+-----------------------------------------------
+Explorando Queries com SQL
+---
+* Explorando os Comandos de DDL - Data Definition Language
+- DDL - Data Definition Language
+> UPDATE: Modificação a partir de uma condição
+> DROP: Remoção de estruturas
+> DELETE: Remoção de registros
+> ALTER: Modificação da estrutura do BD
+---
+* Manipulando o BD com comandos da DDL
+---
+* Elaborando queries SQL com Expressões
+- Expressões
+> Atributos aritméticos
+> Operações
+> Operações matemáticas
+> Tipos de dados: string e númerico
+> Armazenamento: dados simples
+> Resultado de expressões: dados complexos
+> Plus: utilizar alias
+- Concatenando Strings
+> Use || STATE AS novo_nome_para_a_coluna_unificada
+- Expressões - Strings
+---
+* Submetendo Queries SQL com Expressões ao Banco de dados
+- concat(col_1, " ", col_2)
+---
+* Introdução a operações de conjuntos com SQL
+- Like | Between
+> Comparação
+> String Matching
+> Caracteres especiais: % e _
+> Strings
+# 'AB_CD%EF'
+# "->""
+> Intervalo
+> Numérico
+---
+* Mais Expressões e Operações de Conjuntos
+---
+* Utilizando operadores Lógicos Like e Between
+---
+* Exemplos de mais operadores lógicos
+---
+* Comandos baseados em operações matemáticas: UNION, INTERSECTION e EXCEPT
+- Union: União dos conjuntos sem redundancias
+- Union ALL: Retorna inclusive as redunancias
+> Só pode ser aplicado se as duas tabelas tiverem a mesma estrutura
+- Intersect: Retorna só os elementos iguáis nos conjuntos
+- Except: Quais elementos que estão em um conjunto especifico
+---
+* Vendo na prática como funciona as operações matemáticas com SQL
+---
+* Nested Queries (Subqueries) com SQL - Parte 1
+- Comparação por atributos buscados
+- Nested Query - Consulta aninhada
+- Consulta externa e interna
+- SELECT, FROM, WHERE
+- IN -> Comparação com set
+- Keywords
+> ANY, SOME, ALL
+- Operadores:
+> >, >=, < <=, and <>
+- Quando as colunas tem o mesmo nome é necessário usaro o alias (as) (apelido)
+---
+* Nested Queries (Subqueries) com SQL - Parte 2
+- Exists: True se o resultado da consulta aninhada contiver pelo menos uma tupla
+- Not Existis: True se o resultado da consulta aninhada não contiver tuplas
+- Unique: retorna TRUE se único
+- Conjuntos Explícitos
+---
+* Criando subqueries para recuperar informações no banco de dados
+---
+* Segundo exemplo de utilização de Subqueries SQL
+---
+* Utilizando Existis, Unique e comparação com conjuntos explícitos em Queries SQL
+---
+* Materiais de apoio: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/ESa3-wg-Q_BNkISdjJMXsKYBmLPMKQNH51JrK1cVr9P8cg?e=OLpbch
+---
+-----------------------------------------------
+-----------------------------------------------
+Criando Queries com Funções e Cláusulas de Agrupamentos
+---
+* ORDER BY: Cláusulas de ordenação com SQL
+- Ordenação em Queries SQL
+> ORDER BY
+# Cláusula SQL
+# Ordenação por coluna
+# Expressões baseadas em dados
+# + de um valor
+> Ascendente
+> Descendente
+> Definição formal
+# A tupla deve conter a condição definida no WHERE
+---
+* Ordenação com SQL utilizando expressões
+- Classificação de dados
+> DESC, ASC
+---
+* Aplicando Ordenação as Consultas de Banco de Dados
+---
+* Funções de agregação com SQL
+- Agrupamento de Registros 
+> Agregar, Aglutinar, Agrupar
+> COUNT: registros
+> SUM: somatório
+> MIN: valor mínimo
+> MAX: valor máximo
+> AVERAGE 
+> HAVING
+---
+* GROUP BY: Cláusulas de agrupamento com SQL
+> Agregar, Aglutinar, Agrupar, os grupos, tributos informações;
+> Atrubutos de Relacionamentos
+> Grupos de valores
+---
+* Agrupando registros no Banco de Dados
+- avg(coluna) Retona a média da coluna
+- round() Aredonda
+---
+* Explorando cláusulas de agrupamento com SQL
+---
+* Entendendo o HAVING Statement
+- Condição para agrupar
+- Filtragem dos grupos
+- Condição sobre a informação sobre o grupo
+- Estrutura padrão caso todas as condições estivesem inseridas na Query SQL:
+###
+SELECT <attribute and function list>
+FROM <table list>
+[WHERE <condition> AND <condition2>]
+[GROUP BY <grouping attribute(s)>]
+[HAVING <group condition>]
+[ORDER BY <attribute list>]
+###
+- Prestar atenção na preferência(ordem) de execução das cláusulas
+---
+* Aplicando a cláusula HAVING ao Banco de Dados
+- Tuplas (linhas da tabela)
+---
+* Review: Reforçando a diferença entre ORDER by e GROUP BY
+- Diferença entre ORDER BY e GROUP BY
+> ORDER BY ordena conforme os atributos da linha 
+> GROUP BY agrupa os atributos iguais e ordena, pode ser usado mais de uma vez
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/ESa3-wg-Q_BNkISdjJMXsKYBmLPMKQNH51JrK1cVr9P8cg?rtime=N6oMCDyn20g
+---
+-----------------------------------------------
+-----------------------------------------------
+Agrupando Registros e Tabelas com Join Statement
+---
+* Case statement
+- Troca de um valor 
+- Condição para troca
+- Mapeamento de valores de correspondências
+- CASE, when, then, end
+> Não se utiliza sózinho
+---
+* Agupamentos com CASE
+---
+* O caso zero/null trick
+- Filtros - valores distintos
+- SELECT QUERY
+- CASE Statement
+> MAX, AVG, MIN
+> NAD, OR, NOT
+> COUNT
+---
+* Criando Queries com CASE statement
+- Desabilitar o Safe mode
+---
+* Entendendo Queries de múltiplas tabelas com JOIN
+- JOIN Statemant
+> Quando não especifica a conjunção de junção é CROSS JOIN:
+###
+SELECT <atributes list>
+FROM <table1> ft JOIN <table2> st;
+###
+> INNER JOIN:
+###
+SELECT <attributes list>
+FROM <table1> ft INNER JOIN <table2> st
+ON ft.commom_attribute = st.commom_attribute;
+###
+---
+* Queries com INNER JOIN
+- Falha: linhas excluídas
+- INNER JOIN
+> Mais comim dos JOINs
+> Linhas não correspondentes excluidas
+> Atributo de junção
+> Mesclar tabelas
+> 1+atributos junção
+> 2 + Tabelas
+> ON
+> USING (atributo com o mesmo nome)
+> Usar atributos em comum entre as tabelas
+> Não vai mostrar o que não der Match entre as duas tabelas
+---
+* Aplicando JOIN statement ao cenário Employee
+- Os attributos precisam ser do mesmo tipo
+---
+* Agrupamento com mais de duas tabelas e JOIN
+- 3 ou + tabelas com JOIN
+---
+* Criando uma Query SQL com JOIN entre três tabelas
+- A princípio a diferença entre CROSS e INNER JOIN é que o CROSS não tem uma especificação de ON ou USING
+- HAVING aplica uma condição em cima do Grupo
+---
+* A ordem importa em queries JOIN
+- Não o próprio SGBD vai entender como executar uma query
+- SGBD interpreta e escolhe a sequência de comandos
+- SGBD escolhe um ponto de partida
+- Tem como especificar a ordem para o SGBD usando STRAIGHT_JOIN (Forçando ordem de junção)
+---
+* Nested (Subqueries) com JOIN Statement
+- Subqueries COM JOIN
+---
+* Self JOIN: Mesma tabela em uma Query JOIN
+- JOIN Statement
+> Chave estrangeira referenciando a mesma tabela
+---
+* Comparando condições de junção e Filtros
+- JOIN Statement
+---
+* Como utilizar o OUTER JOIN Statement
+- OUTER JOIN
+> Linhas sem correspondencias não eram exibidas
+> Valores de ambas tabelas
+> Matchs nas tabelas
+> O que acontece OUTER JOIN:
+###
+SELECT <atributes list>
+FROM <table1> ft OUTER JOIN <table2> st
+ON ft.commom_attribute =
+st.commom_attribute
+###
+> LEFT e RIGHT JOIN
+---
+* Quando aplicar o LEFT JOIN ou OUTER JOIN
+- Apresentam valores que não são mostrados no INNER JOIN
+---
+* Entendendo melhor os tipos de JOINs
+- INNER ou OUTER JOIN?
+> A tabela referenciada modifica o resultado da query
+> JOIN
+> FULL JOIN
+> LEFT JOIN
+> RIGHT JOIN
+> INNER JOIN
+# JOIN (Intersecção)
+# LEFT JOIN (Tudo que tem na esquerda e o que combina na direita)
+# RIGTH JOIN
+> FULL OUTER JOIN 
+# FULL OUTER JOIN
+# LEFT OUTER JOIN
+# RIGHT OUTER JOIN
+# ANTI OUTER JOIN (Os elementos que não combinam nas tabelas)
+---
+* Explorando ainda mais NATURAL JOIN
+- Condição de junção implícita
+- Atributos comuns (com o mesmo nome)
+---
+* Referências para estudo
+- Livros:
+> Sistema de Banco de Dados
+> Learnin SQL
+> Database modeling and design
+> Getting Started with SQL: A Hands-On Approach for Beginners
+---
+* Material de apoio: https://academiapme-my.sharepoint.com/:p:/g/personal/renato_dio_me/ESa3-wg-Q_BNkISdjJMXsKYBmLPMKQNH51JrK1cVr9P8cg?rtime=FeESK8uo20g
+-----------------------------------------------
+-----------------------------------------------
+Construindo seu Primeiro Projeto Lógico de Banco de Dados
+---
+* Apresentando o Desafio de Projeto Lógico para Banco de Dados
+- Depois Refinar como mostrado no módulo de modelagem de banco de dados usando entidade relacionamento
+- Desafio de Projeto
+> 1. Mapeamento do esquema ER para Relacional
+> 2. Definição do script SQL para criação do esquema de banco de dados
+> 3. Persistência de dados para testes
+> 4. Recuperação de informações com queries SQL
+- E-commerce
+---
+* Considerações sobre a Variação Esquema ER
+---
+* Criando esquema Relacional a partir do Esquema Conceitual
+- A diferença entre char e varchar é que o varchar vai alocando conforme a necessidade e o char é o tamanho específico
+---
+* Criando seu Primeiro Projeto Lógico de Banco de Dados
+---
+* Criando o esquema de Banco de Dados - Script SQL - Parte 1
+---
+* Criando o esquema de Banco de Dados - Script SQL - Parte 2
+---
+* Criando o esquema de Banco de Dados - Script SQL - Parte 3
+---
+* Criando o esquema de Banco de Dados - Script SQL - Parte 4
+---
+* Criando o esquema de Banco de Dados - Script SQL - Parte 5
+---
+* Criando o esquema de Banco de Dados - Script SQL - Parte 6
+---
+* Persistindo e Recuperando Dados a partir de Consultas SQL no Banco de Dados
+---
+* Entendendo o desafio - Criando e Implementando um Projeto Lógico de Banco de Dados
+###
+- Desafio de Projeto - Diretrizes
+> Após a criação do esquema lógico, realize a criação do 
+Script SQL para criação do esquema do banco de dados. 
+Posteriormente, realize a persistência de dados para 
+realização de testes. Especifique ainda queries mais 
+complexas do que as apresentadas durante a explicação do 
+desafio.
+> Não há um mínimo de queries a serem realizadas;
+> Os tópicos supracitados devem estar presentes nas queries;
+> Elabore perguntas que podem ser respondidas pelas consultas;
+> As cláusulas podem estar presentes em mais de uma query;
+> Recuperações simples com SELECT Statement
+> Filtros com WHERE Statement
+> Crie expressões para gerar atributos derivados
+> Defina ordenações dos dados com ORDER BY
+> Condições de filtros aos grupos - HAVING Statement
+> Crie junções entre tabelas para fornecer uma perspectiva mais complexa dos dados;
+> Por no GitHub e submeter para avaliação;
+###
+
+PAREI EM: Entendendo o desafio - Criando e Implementando um Projeto Lógico de Banco de Dados => 01:25
