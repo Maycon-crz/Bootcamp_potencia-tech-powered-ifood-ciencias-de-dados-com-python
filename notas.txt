@@ -1905,4 +1905,374 @@ desafio.
 Construa um Projeto Lógico de Banco de Dados do Zero
 ---
 * Já criei o repositório no GitHub:
-> https://github.com/Maycon-crz/construindo_um_projeto_logico_de_banco_de_dados_do_zero_no_contexto_de_uma_oficina_dasafio_dio/blob/main/README.md
+- https://github.com/Maycon-crz/construindo_um_projeto_logico_de_banco_de_dados_do_zero_no_contexto_de_uma_oficina_dasafio_dio/blob/main/README.md
+- Criação do esquema lógico;
+- Criação do Script SQL para 
+###
+Clientes:
+ClienteID (INT PRIMARY KEY)
+Nome (VARCHAR(45))
+Endereço (VARCHAR(255))
+Telefone (VARCHAR(45))
+Email (VARCHAR(255))
+Data de Cadastro (DATETIME)
+###
+Veiculos:
+VeiculoID (INT PRIMARY KEY)
+ClienteID (INT FOREIGN KEY REFERENCES Clientes(ClienteID))
+Marca (VARCHAR(45))
+Modelo (VARCHAR(45))
+Ano (INT)
+Placa (VARCHAR(45))
+###
+Ordens_de_servico:
+OrdemID (INT PRIMARY KEY)
+ClienteID (INT FOREIGN KEY REFERENCES Clientes(ClienteID))
+VeiculoID (INT FOREIGN KEY REFERENCES Veículos(VeiculoID))
+Data_de_abertura (DATETIME)
+Data_de_conclusao (DATETIME)
+Status (VARCHAR(45))
+Valor Total (DECIMAL(10,2))
+###
+Itens_de_servico:
+ItemID (INT PRIMARY KEY)
+OrdemID (INT FOREIGN KEY REFERENCES Ordens de Serviço(OrdemID))
+Descricao_do_serviço (VARCHAR(45))
+Preco (DECIMAL(10,2))
+###
+Funcionários:
+FuncionárioID (INT PRIMARY KEY)
+Nome (VARCHAR(45))
+Cargo (VARCHAR(45))
+Data de Contratação (DATETIME)
+Salário (DECIMAL(10,2))
+​###
+
+- Relacionamentos:
+> Um cliente pode ter vários veículos, mas cada veículo pertence a um único cliente (relação 1:N entre Clientes e Veículos).
+> Uma ordem de serviço é vinculada a um único cliente e a um único veículo, mas um cliente ou veículo pode ter várias ordens de serviço (relações 1:N entre Clientes e Ordens de Serviço, e entre Veículos e Ordens de Serviço).
+> Uma ordem de serviço pode ter vários itens de serviço, e um item de serviço está associado a uma única ordem de serviço (relação 1:N entre Ordens de Serviço e Itens de Serviço).
+- Atributos:
+> Na tabela de Ordens de Serviço, o atributo "Status" pode conter valores como "Aberta", "Em andamento" e "Concluída".
+> Os atributos de datas (Data de Cadastro, Data de Abertura, Data de Conclusão, Data de Contratação) podem ser do tipo "datetime" para armazenar datas e horários.
+> Este esquema lógico é um ponto de partida e pode ser ajustado de acordo com as necessidades específicas da sua oficina. Certifique-se de identificar todas as informações cruciais para o funcionamento da oficina e defina relacionamentos apropriados para manter a integridade dos dados.
+-----------------------------------------------
+-----------------------------------------------
+Fundamentos de ETL (Extract, Transform, Load) com Python
+---
+* Prof. Dr. Diego Bruno
+---
+* Introdução para ETL
+- Para modelo de dados que não são padronizados
+- Etração, transformação, carregamento
+- É um tipo de data integration, usado para combinar dados de diversas fontes. Comumente usado para construir um data Warehouse
+- Extract:
+> Importar dados de diversos tipos e formatos
+> Pasta de trabalho, diversos Bancos de dados, CSV, TXT, JSON, etc.
+- Transform
+- Load - carregar
+> Para o modelo de dados
+- Ferramentas
+> IBM Information
+> Server (Data Stage) ...
+- Processo de ETL
+> Extração, 
+> transformação
+# Limpeza ...
+> carregamento
+> Mapeamento
+---
+* Etapas para ETL
+- Extract
+> Se comunicar com outros sistemas
+> Capturar dados
+- Transform
+> Padronização
+> Limpeza
+> Qualidade
+- Load (Carregamento)
+> Etapa final
+> Ler e carregar os dados no Data Warehouse ou Data Mart Final;
+- Vantagens
+> Garantia significativa de qualidade dos dados
+> Funcionalidade e execução
+# Funções específicas;
+> Manutenção das cargas
+> Performance
+# Trabalhar com grandes volumes de dados;
+> Transferência
+# Deslocamento de uma servidor mas facilmente
+> Conectividade
+# Multiplas fontes de dados
+> Reinicialização
+> Segurança e Estabilidade
+# Mais modular dividindo as funcionalidades
+---
+* Ferramentas aplicadas para ETL
+- Usados em Data Woarehouse e Busines inteligence
+> Facilitar Processos de integração de software, banco de dados, etc...
+- IBM DATA STAGE
+- Power Center
+- SQL Server Integration Services
+> Talend ETL
+- ETL para BIG Data
+> Data Warehouse ou gerando códigos para serem rodados nessas ferramentas do Ecossistema Hadoop
+---
+* Introdução à Biblioteca Pandas
+- É a manipulação de dados estruturada como no exel só que de forma mais avançada
+> Sem precisar de planilhas para extruturar, analizando tudo de forma inteligente
+- Permite trabalhar com diferentes tipos de dados;
+- Estruturas de Dados
+> Principais objetos da Pandas: Series e os Data Frames
+---
+* Biblioteca Pandas e suas funções
+- DataFrame
+- df.shape (Retorna o volume de informações na questão estrutural)
+- df.info (retorna os tipos de dados, volume de dados nulos, e o tamanho)
+- Alterações
+> Passar o novo conjunto de nomes desejados com a mesma quantidade de colunas existentes no conjunto original
+> O Python é case-sensitive
+> unique() Retorna valores únicos diferenciando com case sensitive
+- Agrupamentos
+- Dados estatísticos
+---
+* Introdução à biblioteca Scikit Learn
+- Uma das principais para Machine Learning
+- Utilizando a biblioteca
+> É possível se comunicar com outras bibliotecas
+- Scikit-learn
+> Pacote matplotlib
+> predict() previsão dos valores
+> plot() gera uma reta com os dados
+> scatter()
+---
+* Manipulando Dados com Pandas em Python
+- ETL: Manipulando Dados com Pandas em Python
+---
+* Framework Luigi para ETL com Python
+- Ferramenta de código aberto
+- É um Framework de execução criado pelo Spotify
+- Voltado para criar pipelines de dados em Python
+- Tópicos
+> Target
+> Task
+# require()
+# output()
+# run()
+- Pesquisar sobre essa ferramenda de ambiente de desenvolvimento que ele usa:
+> https://anaconda.org/anaconda/python
+# Criei a conta na plataforma
+- Instalação Framework Luigi
+> Documentação: https://luigi.readthedocs.io/en/stable
+> pip install luigi
+> Comando para iniciar o Framework Luigi
+# luigid
+> URL para acessar a interface gráfica:
+# http://localhost:8082
+---
+* Material de apoio: https://academiapme-my.sharepoint.com/personal/kawan_dio_me/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fkawan%5Fdio%5Fme%2FDocuments%2FSlides%20dos%20Cursos%2FFundamentos%20de%20ETL&ga=1
+-----------------------------------------------
+-----------------------------------------------
+Introdução ao Machine Learning
+---
+* Maquinas que pensam como humanos
+- Treinamentos de sistemas de IA;
+- Tomada de decisão com suporte de base de regras
+- Automação
+- Como a IA é vista hoje
+> IA Geral
+> IA Restrita
+> Aprendizado de Máquina
+> Ficção Científica
+# Visão sobre o futuro
+# Ex Machina
+> Primeiro robô a ter cidadania
+# Sophia
+- Relação entre ML e AI
+> Por meio do ML obtemos (ou não) um IA restrita;
+> É necessário passar por um método de Machine learning para obter a IA;
+> Aprendizado de Máquina (Treinamento)
+# Depende de uma base de dados
+---
+* Métodos de Machine Learning e suas aplicações
+- Exemplo de Aprendizado
+> Aprendizado por Reforço
+# Recompença caso o resultado for positivo
+- Aplicações em Veículos Autônomos
+> Pesquisa em Veículos - ADAS
+- Sensoriamento: Dados gerados
+> Fusão de Sensores para Visão Computacional
+- Deep Learning - TensorFlow
+> Extração de features 2D
+> CNN
+- Bibliotecas de ML
+> Scikit learn
+> Pandas
+- COLAB: Ferramenta online de Machine learning
+> Para não precisar instalar nada e rodar tudo na nuvem
+---
+* Machine Learning aplicados em sistemas reais
+- Diagrama de blocos do sistema
+- Arquitetu de um Carro Autônomo
+> Problemas
+# Detecção de placas móveis - (rotas não mapeadas)
+> Planejamento de rotas
+> Atenção visual
+# Análise de ambiente de navegação com regras de trânsito em conjunto com o comportamento do condutor
+> Funcionamento do Sistema
+# Percepção externa + percepção interna
+> ADAS
+# Máquina de Estados + RNA
+# Classificação dos problemas
+# ADAS para correção de falhas humanas
+> Redes
+# Visão 2D CNN Segnet
+# Deep Learning - YOLO
+# MASK-RCNN Deep Learning
+# DeepLAB - Deep Learning
+---
+* Modelos de Machine Learning para Visão Computacional
+- O mundo é visto de forma 3D
+- Problemas em Visão 2D
+> Avaliar profundidade
+> Diferenciar objetos reais e pinturas
+- Ética para Sistemas inteligentes
+> Avaliar se as decições estão dentro das leis
+> Avaliar o grau de prioridade
+> Tomada de decisão sem sentimentos
+- Aplicações de ML e IA
+> Suporte para medicina
+# Detectar cancer de mama
+# Detectar cancer de pele
+> Revolução Industrial
+# Industria 4.0
+# Robótica industrial
+# Robôs de produção
+# Robôs colaborativos
+- Problemas de IA
+> Reconhecer tipos de carne
+> Grandes valores
+- BIG data
+> Análise de grandes volumes de dados
+- Sistemas de Recomendação
+> Coleção => Armazenamento => Análise => Recomendação
+- Suporte para a Medicina
+> Relação, previsão
+- Vida eterna
+> 2045 Avatar project milestones
+# 2015 - 2020 (Cópia robôtica de um corpo humano controlada remotamente via BCI)
+# 2020 - 2025 (Avatar com um cerebro humano que é transplantado no final da vida)
+# 2030 - 2035 (Avatar com um cérebro artificial no qual uma personalidade humana é transferida no final da vida)
+# 2040 - 2045 (Avatar semelhante a um holograma)
+- Transhumanismo
+> Melhoramento cerabral e corporal
+- Maquinas que pensam como humanos
+> Reabilitação
+> Neurocientista brasileiro Meguel Nicolelis
+# Aplicações de reabilitação humana - sistemas cognitivos
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/kawan_dio_me/EW4SsQERpldNhGCsFHx9ZnQBvUlqQ8s6IEjk51gDDTANug?e=WKJag5
+-----------------------------------------------
+-----------------------------------------------
+Métodos de Machine Learning Bioinspirados
+---
+* De onde veio a idéia de ensinar uma máquina?
+- Vem do raciocíneo humano
+- Tentar realizar o que uma pessoa faz sem os erros
+* Busca inspirações na Natureza
+* O que são algoritmos Bioinspirados?
+- Inspirados no comportamento de seres vivos em convência social;
+- Conhecimento colaborativo/compartilhado;
+- Métodos Heurístios (não deterministicos)
+> A resposta não é unica é encontrar a melhor solução dentro de um espaço de busca
+> Não necessária mente é o melhor
+> Solução ótima global
+- Algoritmo inspirado em uma Colônia de formigas
+- Algoritmo inspirado em uma Colônia de abelhas
+- Redes Neurais
+- Genética
+> Núcleo
+> Cromossomo
+> Gene
+- Lógica Fuzzy: Qual taça tem bastante vinho?
+> Lógica nebulosa
+> Não tem resposta exata para tudo
+---
+* Algoritmos Heurísticos x Determinísticos
+- Diferença entre valores Determinísticos e Heuristícos
+> Deterministico: Tem uma resposta exata
+# Só uma resposta
+> Heuristícos: Varios critérios que podem ser chamados de Fuzzy
+# Lógica difusa
+# Vários valores para responder um mesmo problema
+# As relações humanas geralmente são Heuristícas
+- O que mais usamos: RNA
+> Como os neurôneos se comportam
+- Aplicações em sistemas
+> Algoritmo de roteamento
+# Robótica
+# Destino
+# Redes
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/kawan_dio_me/EWwdKbXjY7ZIiN3Kin6MtfEBB63W1WfF4HzRWh0bn1qtWA?e=sFipbO
+-----------------------------------------------
+-----------------------------------------------
+Redes Neurais Artificiais
+---
+* Cria com inspiração na natureza
+- É um Algoritmo bioinspirado
+* Estrutura de uma RNA
+- Constituintes da célula
+* Redes Biológicas x Artificiais
+- Neurônio artificial
+> Sinais de entrada
+> Pessos sinápticos
+> Combinador Linear
+> Função de Ativação
+> Limiar de ativação
+> Potencial de ativação
+> Sinal de saida
+---
+* Treinamento de uma Rede Neural Artificial
+- Dados de entrada e saída
+> Entrada => Processo => Dados interpretados na saída
+- Relação de entrada e saída
+> Imagem de entrada => Dados gerados
+- Análise de Características (Features)
+> Redes Neurais Artificiais
+# Input => Neural network => Hidden layers => Output
+- Dados a serem interpretados
+> Campo receptivo
+> Convolução espacial com n filtros
+> Filtro i com pesos w
+> n feature maps
+> f(i, x, y) pixel de saída
+- Análise de características (features)
+> Imagem de entrada => filtros => Feature maps => Filtros => feature maps
+- Caixa preta gerada no treino
+- Features
+> Faces
+> Objetos
+> Formatos
+---
+* Classificação : Execução da Rede Neural Artificial
+- Classificação de objetos
+> Dados a serem interpretados
+# Entrada, Rótulo e Classificação
+> Mnist Dataset
+- Dataset - Base de treino
+- O que gera um Treinamento
+> Dados de aprendizado
+# Pesos gerados no treinamento
+# Arquivos de pesos
+- Modelo de treinamento
+> Pesos gerados em uma rede
+---
+* Material: https://academiapme-my.sharepoint.com/:p:/g/personal/kawan_dio_me/Ed3FPLEoKiJKgbKIq1pabGsBA1_a7sJLg_QHZ4dj0xb6Lg?e=VI5lnA
+- E-book: https://academiapme-my.sharepoint.com/personal/renato_dio_me/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Frenato%5Fdio%5Fme%2FDocuments%2FDigital%20Innovation%20One%2Fslides%20aulas%20diversas%2FTrilhas%2FMachine%20Learning%2FComo%20funciona%20o%20Deep%20Learning%5F2017%2Epdf&parent=%2Fpersonal%2Frenato%5Fdio%5Fme%2FDocuments%2FDigital%20Innovation%20One%2Fslides%20aulas%20diversas%2FTrilhas%2FMachine%20Learning&ga=1
+-----------------------------------------------
+-----------------------------------------------
+
+
+
+PAREI EM: Biblioteca Pandas e suas funções => 03:39
